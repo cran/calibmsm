@@ -2,7 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom magrittr %>%
 #' @importFrom stats predict
 #' @importFrom VGAM s
 #' @importFrom VGAM sm.os
