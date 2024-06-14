@@ -6,7 +6,7 @@
 #' been exported to allow users to reproduce results in the vignette when
 #' estimating confidence intervals using bootstrapping manually.
 #'
-#' @param data.mstate Validation data in msdata format
+#' @param data.ms Validation data in msdata format
 #' @param data.raw Validation data in data.frame (one row per individual)
 #' @param t Follow up time at which to calculate weights
 #' @param s Landmark time at which predictions were made
@@ -17,9 +17,9 @@
 #' @param stabilised Indicates whether weights should be stabilised or not
 #' @param max.follow Maximum follow up for model calculating inverse probability of censoring weights. Reducing this to `t` + 1 may aid in the proportional hazards assumption being met in this model.
 #'
-#' @returns A dataframe with three columns. `id` corresponds to the patient ids from `data.raw`. `ipcw` contains the inverse probability
-#' of censoring weights (specifically the inverse of the probability of being uncesored). `pcw = 1/ipcw`. If `stabilised = TRUE` was specified,
-#' a fourth variable `ipcw.stab` will be returned, which is the stabilised inverse probability of censoring weights.
+#' @returns A data frame with two columns. `id` corresponds to the patient ids from `data.raw`. `ipcw` contains the inverse probability
+#' of censoring weights (specifically the inverse of the probability of being uncesored). If `stabilised = TRUE` was specified,
+#' a third variable `ipcw.stab` will be returned, which is the stabilised inverse probability of censoring weights.
 #'
 #' @details
 #' Estimates inverse probability of censoring weights (Hernan M, Robins J, 2020).
@@ -40,7 +40,7 @@
 #' # Specifically the probability of being uncensored at t = 1826 days.
 #' # Weights are estimated using a model fitted in all individuals uncensored at time s = 0.
 #' weights.manual <-
-#' calc_weights(data.mstate = msebmtcal,
+#' calc_weights(data.ms = msebmtcal,
 #'   data.raw = ebmtcal,
 #'   covs = c("year", "agecl", "proph", "match"),
 #'   t = 1826,
@@ -51,7 +51,7 @@
 #'  str(weights.manual)
 #'
 #' @export
-calc_weights <- function(data.mstate, data.raw, covs = NULL, t, s, landmark.type = "state", j = NULL, max.weight = 10, stabilised = FALSE, max.follow = NULL){
+calc_weights <- function(data.ms, data.raw, covs = NULL, t, s, landmark.type = "state", j = NULL, max.weight = 10, stabilised = FALSE, max.follow = NULL){
 
   ### Modify everybody to be censored after time t, if a max.follow has been specified
   if(!is.null(max.follow)){
@@ -79,22 +79,22 @@ calc_weights <- function(data.mstate, data.raw, covs = NULL, t, s, landmark.type
   ### who have reached absorbing states, who have been 'censored' from the survival distribution is censoring)
   if (landmark.type == "state"){
     ### Identify individuals who are uncensored in state j at time s
-    ids.uncens <- base::subset(data.mstate, from == j & Tstart <= s & s < Tstop) |>
+    ids.uncens <- base::subset(data.ms, from == j & Tstart <= s & s < Tstop) |>
       dplyr::select(id) |>
       dplyr::distinct(id) |>
       dplyr::pull(id)
 
   } else if (landmark.type == "all"){
     ### Identify individuals who are uncensored time s
-    ids.uncens <- base::subset(data.mstate, Tstart <= s & s < Tstop) |>
+    ids.uncens <- base::subset(data.ms, Tstart <= s & s < Tstop) |>
       dplyr::select(id) |>
       dplyr::distinct(id) |>
       dplyr::pull(id)
 
   }
 
-  ### Subset data.mstate and data.raw to these individuals
-  data.mstate <- data.mstate |> base::subset(id %in% ids.uncens)
+  ### Subset data.ms and data.raw to these individuals
+  data.ms <- data.ms |> base::subset(id %in% ids.uncens)
   data.raw <- data.raw |> base::subset(id %in% ids.uncens)
 
   ###

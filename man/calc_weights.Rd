@@ -5,7 +5,7 @@
 \title{Calculate inverse probability of censoring weights at time \code{t}.}
 \usage{
 calc_weights(
-  data.mstate,
+  data.ms,
   data.raw,
   covs = NULL,
   t,
@@ -18,7 +18,7 @@ calc_weights(
 )
 }
 \arguments{
-\item{data.mstate}{Validation data in msdata format}
+\item{data.ms}{Validation data in msdata format}
 
 \item{data.raw}{Validation data in data.frame (one row per individual)}
 
@@ -39,9 +39,9 @@ calc_weights(
 \item{max.follow}{Maximum follow up for model calculating inverse probability of censoring weights. Reducing this to \code{t} + 1 may aid in the proportional hazards assumption being met in this model.}
 }
 \value{
-A dataframe with three columns. \code{id} corresponds to the patient ids from \code{data.raw}. \code{ipcw} contains the inverse probability
-of censoring weights (specifically the inverse of the probability of being uncesored). \code{pcw = 1/ipcw}. If \code{stabilised = TRUE} was specified,
-a fourth variable \code{ipcw.stab} will be returned, which is the stabilised inverse probability of censoring weights.
+A data frame with two columns. \code{id} corresponds to the patient ids from \code{data.raw}. \code{ipcw} contains the inverse probability
+of censoring weights (specifically the inverse of the probability of being uncesored). If \code{stabilised = TRUE} was specified,
+a third variable \code{ipcw.stab} will be returned, which is the stabilised inverse probability of censoring weights.
 }
 \description{
 Estimates the inverse probability of censoring weights by fitting a cox-propotinal hazards model
@@ -64,7 +64,7 @@ vignette \emph{overview}.
 # Specifically the probability of being uncensored at t = 1826 days.
 # Weights are estimated using a model fitted in all individuals uncensored at time s = 0.
 weights.manual <-
-calc_weights(data.mstate = msebmtcal,
+calc_weights(data.ms = msebmtcal,
   data.raw = ebmtcal,
   covs = c("year", "agecl", "proph", "match"),
   t = 1826,

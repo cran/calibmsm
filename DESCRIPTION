@@ -1,7 +1,7 @@
 Package: calibmsm
 Title: Calibration Plots for the Transition Probabilities from
         Multistate Models
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: 
   c(
   person(given = "Alexander", family = "Pate", email = "alexander.pate@manchester.ac.uk", role = c("aut", "cre", "cph"),
@@ -37,10 +37,10 @@ VignetteBuilder: knitr, R.rsp
 URL: https://alexpate30.github.io/calibmsm/
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-05-13 11:02:22 UTC; mbrxsap3
+Packaged: 2024-06-14 09:11:19 UTC; mbrxsap3
 Author: Alexander Pate [aut, cre, cph]
     (<https://orcid.org/0000-0002-0849-3458>),
   Glen P Martin [fnd, rev] (<https://orcid.org/0000-0002-3410-9472>)
 Maintainer: Alexander Pate <alexander.pate@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2024-05-13 11:33:07 UTC
+Date/Publication: 2024-06-14 09:40:02 UTC
