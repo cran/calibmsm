@@ -1,7 +1,7 @@
-ba07121ca1b088397bbb02ee46993596 *DESCRIPTION
+cf4489cd0becde6242375b73f01b14a3 *DESCRIPTION
 111a6a7b4fba308ca6c6cda99d44b3ee *LICENSE
 b5260b85392a80cc1a1ee2ec28e81515 *NAMESPACE
-9e3cd66a7ab533fde6c2630d5ab1ede9 *NEWS.md
+e960b27d736b76e08bafdfa4c7fd8def *NEWS.md
 3c8d497bdd8a667ea374ea9b88837d30 *R/calibmsm-misc.R
 ef5277093525eb6f75f66d28c6294b05 *R/calibmsm-package.R
 33f882d1d0cf87107b76f54b2735e9ef *R/calibmsm.R
@@ -30,7 +30,7 @@ b619b28a3e91a0ceb163306cacd98612 *data/tps0.rda
 df199bd051e01ef89af1a14f103245e7 *inst/doc/overview_guide.pdf.asis
 ddf972b2fc2622c47e1905a8a0b24b5c *man/calc_weights.Rd
 c942aa0966a29dfb00eb3821865fe0ca *man/calib_msm.Rd
-38c81967839e0492d87e07b7f9d9711c *man/calibmsm-package.Rd
+555d51a1f77ce57c091f868367346157 *man/calibmsm-package.Rd
 7e291359174469003ecd99b810c169da *man/ebmtcal.Rd
 3777d244e4b19c0f5b269f1513ae6be0 *man/ebmtcal_cmprsk.Rd
 d91fd5832fa5ada1dc39e6973385286d *man/figures/README-example-1.png
@@ -49,12 +49,12 @@ fcda039a0198fb08afa710d94bd6d4fb *man/msebmtcal.Rd
 56a23d11f38d497cccaa1a9d37489ba3 *man/tps100.Rd
 4ef345e794ba78d23193c78869e52b12 *tests/testthat.R
 7da8d9d31aa0ae49abfa6beb24d59bd3 *tests/testthat/Rplots.pdf
-bc6b2819c43b7aaeabd3beb75dadbaa9 *tests/testthat/test-calib_aj.R
+be421067f92739cb8c46d18b2fb3d998 *tests/testthat/test-calib_aj.R
 f149ababc88d3ec13511d1c3ea618fa2 *tests/testthat/test-calib_blr.R
 112b0f238cea6d8db89aaafa03c987f2 *tests/testthat/test-calib_mlr.R
 c2fe751e744af3c9da0d41f0b6e78753 *tests/testthat/test-calib_pv.R
 81f4482c8a22634d3df0641072acbb50 *tests/testthat/test-extract_ids_states.R
-7c0cd177ceca309a14c985b129c5976f *tests/testthat/test-plot_calib.R
+db9b73be1e7834408be179a7c28cb620 *tests/testthat/test-plot_calib.R
 2743357429157663ccc98d93baad1739 *tests/testthat/test-weights.R
 30363632bc731a7359c038e3bdb6eea3 *vignettes/Directory-of-vignettes.Rmd
 df199bd051e01ef89af1a14f103245e7 *vignettes/overview_guide.pdf.asis
